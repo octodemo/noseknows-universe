@@ -55,8 +55,8 @@ def recommend_perfumes(liked_perfumes, num_recs=5):
     rec_perfumes = perfume_df.loc[rec_indices, 'Name'].to_list()
     rec_perfumes_info = perfume_df.loc[rec_indices, ['Name', 'Image URL', 'Description', 'Notes']].to_dict(orient='records')
 
-    return {
-        "rec_perfumes": rec_perfumes,
-        "rec_perfumes_details": rec_perfumes_info
-    }
+    return [
+        {"name": name, "description": details}
+        for name, details in zip(rec_perfumes, rec_perfumes_info)
+    ]
     
