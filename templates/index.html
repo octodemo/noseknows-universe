@@ -1,16 +1,23 @@
 <head>
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-
+</head>
 <body>
-    <div class="App">
-        <header class="App-header">
-            <img src="{{ url_for('static', filename='Octocat.png') }}" class="App-logo" alt="logo" />
-            <p>
-                Let's build a perfume recommendation system! <span class="heart">♥️</span>
-            </p>
-        </header>
-    </div>
+    <header>
+        <h1>Perfume recommendations</h1>
+    </header>
+    <article>
+        <section>
+            <div>Select your favorite perfumes and we'll recommend new ones for you!</div>
+            <form method="post">
+                <label for="perfume">Select your favorite perfume:</label>
+                <select name="perfume" id="perfume" multiple>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section id="recommendations"></section>
+    </article>
 </body>
 
 </html>

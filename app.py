@@ -32,5 +32,14 @@ def recommend():
     # return recommendations in a consistent format
     return {"recommendations": recs}, 200
 
+# Create a route to return an array of the perfume names from data/sample_perfumes.csv
+
+@app.route('/api/sample_perfumes')
+@cross_origin()
+def sample_perfumes():
+    with open('data/sample_perfumes.csv', 'r') as file:
+        sample_perfumes = file.read().splitlines()
+    return {"sample_perfumes": sample_perfumes}
+
 if __name__ == '__main__':
     app.run(debug=True)
